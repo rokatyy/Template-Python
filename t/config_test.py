@@ -98,4 +98,3 @@ class ConfigTest(TestCase):
     # (later)
 
 
-main()

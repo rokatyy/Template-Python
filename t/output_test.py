@@ -55,4 +55,3 @@ class OutputTest(TestCase):
     self.assertEquals("set binmode\n", intercept.message)
 
 
-main()

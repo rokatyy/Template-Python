@@ -164,4 +164,3 @@ romeo, sierra, foxtrot
 romeo
 """
 
-main()

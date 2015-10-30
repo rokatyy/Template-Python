@@ -1,0 +1,16 @@
+language: python
+python:
+  - "2.7"
+  - "pypy"
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+
+install:
+  - pip install pillow
+
+script:
+  - cd t
+  - PYTHONPATH=".." python -m unittest discover -p '*_test.py'

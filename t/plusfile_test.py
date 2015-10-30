@@ -78,4 +78,3 @@ The word is '[% word %]'
 
 """
 
-main()
