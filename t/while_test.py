@@ -192,5 +192,4 @@ Reset list
 1
 """
 
-main()
 

@@ -205,4 +205,3 @@ not testing
 
 """
 
-main()

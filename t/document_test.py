@@ -117,4 +117,3 @@ one, three
 two, three
 """
 
-main()

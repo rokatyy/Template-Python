@@ -7,11 +7,16 @@ from template import Template, TemplateException
 from template.test import TestCase, main
 from template.util import dynamic_filter
 
-old_stderr = sys.stderr
-sys.stderr = cStringIO.StringIO()
-
 
 class FilterTest(TestCase):
+  def setUp(self):
+    self.old_stderr = sys.stderr
+    sys.stderr = cStringIO.StringIO()
+
+  def tearDown(self):
+    sys.stderr = self.old_stderr
+    self.old_stderr = None
+
   def testFilter(self):
     dir = 'test/tmp'
     file = 'xyz'
@@ -825,7 +830,3 @@ Foobar
 fOOBAR
 
 """
-
-main()
-
-sys.stderr = old_stderr

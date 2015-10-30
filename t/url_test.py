@@ -126,5 +126,4 @@ there?age=42&amp;name=frank
 /product?action=edit&style=compact
 """
 
-main()
 
