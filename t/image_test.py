@@ -1,6 +1,8 @@
 import os
 import sys
 
+import pytest
+
 from template.test import TestCase, main
 
 try:
@@ -10,6 +12,7 @@ except ImportError:
   sys.exit(0)
 
 class ImageTest(TestCase):
+  @pytest.mark.xfail
   def testImage(self):
     dir = os.path.join(os.pardir, "images")
     vars = { "dir": dir,
