@@ -7,7 +7,7 @@
 #  the terms under which this file may be distributed.
 #
 
-import cStringIO
+from io import StringIO
 import os
 import re
 import sys
@@ -91,7 +91,7 @@ class StringBuffer:
     """Initializes the object.  If the contents argument is not None, it
     is immediately passed to the write method.
     """
-    self.buffer = cStringIO.StringIO()
+    self.buffer = StringIO()
     if contents is not None:
       self.write(contents)
 
@@ -370,7 +370,7 @@ class PerlScalar:
     return int(self.__numify())
 
   def __long__(self):
-    return long(self.__numify())
+    return int(self.__numify())
 
   def __float__(self):
     return float(self.__numify())
@@ -393,7 +393,7 @@ NUMBER_RE = re.compile(r"\s*[-+]?(?:\d+(\.\d*)?|(\.\d+))([Ee][-+]?\d+)?")
 
 def numify(value):
   """Converts any object to a number using Perl's rules."""
-  if isinstance(value, (int, long, float)):
+  if isinstance(value, (int, float)):
     return value
   elif value is True:
     return 1
@@ -499,7 +499,7 @@ def EvaluateCode(code, context, stash):
            "stdout": sys.stdout,
            "output": stringbuf }
   try:
-    exec code in vars
+    exec(code, vars)
   finally:
     sys.stdout = old_stdout
   return stringbuf.get()
@@ -547,12 +547,12 @@ def unscalar_list(seq):
 def ScalarList(*args):
   """Returns a PerlScalar that wraps a list containing the result of
   applying the unscalar function to each argument of this function--
-  except for xrange objects, which are flattened into the output list
+  except for range objects, which are flattened into the output list
   instead.
   """
   list = []
   for arg in args:
-    if isinstance(arg, xrange):
+    if isinstance(arg, range):
       list.extend(arg)
     else:
       list.append(unscalar(arg))
@@ -624,7 +624,7 @@ def unpack(seq, n):
   ...and not suffer an error if there are fewer than three elements
   in the tuple returned by func.
   """
-  return chop(seq, n).next()
+  return chop(seq, n).__next__()
 
 
 def listify(arg):

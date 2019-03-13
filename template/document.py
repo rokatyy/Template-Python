@@ -7,7 +7,7 @@
 #  the terms under which this file may be distributed.
 #
 
-import cStringIO
+from io import StringIO
 import os
 import re
 import tempfile
@@ -168,7 +168,7 @@ class Document:
 
     # same for any additional BLOCK definitions
     self.__defblocks = {}
-    for name, block in doc.get("DEFBLOCKS", {}).iteritems():
+    for name, block in doc.get("DEFBLOCKS", {}).items():
       self.__defblocks[name] = self.__compile(block)
 
     self.__meta = doc.get("METADATA", {}).copy()
@@ -178,7 +178,7 @@ class Document:
     if callable(block):
       return block
     if debug:
-      print block
+      print(block)
     return self.evaluate(block)
 
   def __getattr__(self, name):
@@ -213,7 +213,7 @@ class Document:
     try:
       try:
         return self.__block(context)
-      except TemplateException, e:
+      except TemplateException as e:
         raise context.catch(e)
     finally:
       self.__hot = False
@@ -229,7 +229,7 @@ class Document:
     block.  The default name is 'block'.
     """
     namespace = PYEVAL_NAMESPACE.copy()
-    exec block in namespace
+    exec(block, namespace)
     return namespace.get(name)
 
   @classmethod
@@ -242,7 +242,7 @@ class Document:
     file.  The default name is 'document'.
     """
     namespace = PYEVAL_NAMESPACE.copy()
-    execfile(path, namespace)
+    exec(path, namespace)
     return namespace.get(name)
 
   @classmethod

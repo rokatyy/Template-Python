@@ -68,7 +68,7 @@ tokens = ("(", ")", "[", "]", "{", "}", "${", "$", "+", "/", ";", ":", "?")
 for keyword in RESERVED:
   LEXTABLE[keyword] = keyword
 
-for op in CMPOP.iterkeys():
+for op in CMPOP.keys():
   LEXTABLE[op] = "CMPOP"
 
 for op in "-", "*", "%":
@@ -5715,7 +5715,7 @@ def rule(*args):
 
 @define(117, "range", 3)
 def rule(*args):
-  return "xrange(int(%s), int(%s) + 1)" % (args[1], args[3])
+  return "range(int(%s), int(%s) + 1)" % (args[1], args[3])
 
 
 @define(119, "hash", 0)

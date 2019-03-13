@@ -88,20 +88,20 @@ Python:
   from template import Template
 
   template = Template()
-  print template.process("someblock")
+  print(template.process("someblock"))
 
 Or just:
 
-  print Template().process("someblock")
+  print(Template().process("someblock"))
 
 You can, of course, catch a raised exception to take special action.
 
   from template import Template, TemplateException
 
   try:
-    print Template().process("someblock")
+    print(Template().process("someblock"))
   except TemplateException, e:
-    print >>sys.stderr, "Got exception: ", e
+    print(>>sys.stderr, "Got exception: ", e)
 
 The OUTPUT and OUTPUT_PATH options are honored, but do not otherwise
 change the behavior of process().
@@ -380,7 +380,7 @@ I have tried to follow a principle of least surprise here.  Dict
 lookup is attempted up to three times, first using the given key, then
 using the stringified key if possible, then using the key converted to
 an integer if possible.  Therefore the previous template snippet would
-print "number", and the other cases are exhibited thusly:
+print("number"), and the other cases are exhibited thusly:
 
   mydict = { 1: "one", "2": "two" }
 

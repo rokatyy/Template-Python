@@ -698,7 +698,7 @@ def hash_size(hash):
 
 @hash_op("each", "items")
 def hash_each(hash):
-  return [item for pair in hash.iteritems() for item in pair]
+  return [item for pair in hash.items() for item in pair]
 
 
 @hash_op("keys")
@@ -764,7 +764,7 @@ def hash_sort(hash):
 
 @hash_op("nsort")
 def hash_nsort(hash):
-  return [pair[0] for pair in sorted(hash.items(), key=_by_value(_to_long))]
+  return [pair[0] for pair in sorted(hash.items(), key=_by_value(_to_int))]
 
 
 @list_op("item")
@@ -890,9 +890,9 @@ def list_nsort(list, field=None):
   if len(list) <= 1:
     return list[:]
   elif field:
-    return sorted(list, key=_smartsort(field, _to_long))
+    return sorted(list, key=_smartsort(field, _to_int))
   else:
-    return sorted(list, key=_to_long)
+    return sorted(list, key=_to_int)
 
 
 @list_op("unique")
@@ -966,15 +966,15 @@ def _to_lower(x):
 
 LONG_REGEX = re.compile(r"-?\d+")
 
-def _to_long(x):
+def _to_int(x):
   try:
-    return long(x)
+    return int(x)
   except ValueError:
     match = LONG_REGEX.match(str(x))
     if match:
-      return long(match.group(0))
+      return int(match.group(0))
     else:
-      return 0L
+      return 0
 
 
 def _by_value(func):

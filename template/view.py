@@ -7,11 +7,12 @@
 #  the terms under which this file may be distributed.
 #
 
-import cStringIO
+from io import StringIO
 import re
 
 from template.constants import ERROR_VIEW
 from template.util import can, is_seq
+from builtins import str
 
 
 """
@@ -460,7 +461,7 @@ class View:
         type = "ARRAY"
       elif isinstance(item, dict):
         type = "HASH"
-      elif isinstance(item, (basestring, int, long)):
+      elif isinstance(item, (str, int)):
         type = "TEXT"
       else:
         type = item.__class__.__name__
@@ -540,13 +541,13 @@ class View:
     e = None
     try:
       template = self._context.template(template)
-    except Exception, e:
+    except Exception as e:
       pass
     if e and self._base:
       try:
         template = self._base.template(name)
         e = None
-      except Exception, e:
+      except Exception as e:
         pass
     if e and self._notfound:
       template = self._blocks.get(self._notfound)
@@ -554,7 +555,7 @@ class View:
         notfound = self.template_name(self._notfound)
         try:
           template = self._context.template(notfound)
-        except Exception, e:
+        except Exception as e:
           self._context.throw(ERROR_VIEW, e)
     elif e:
       self._context.throw(ERROR_VIEW, e)
