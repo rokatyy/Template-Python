@@ -567,7 +567,7 @@ ERROR redirect: OUTPUT_PATH is not set
    b = 20
    stash['foo'] = a + b
    stash['bar'] = context.config()['BARVAL']
-   print "all done",
+   print("all done"),
 [% END +%]
 foo: [% foo +%]
 bar: [% bar %]

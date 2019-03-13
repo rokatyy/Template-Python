@@ -28,7 +28,7 @@ DATA = r"""
     output = "author: [% template.author %]\n"
     stash.set('a', 'The cat sat on the mat')
     output += "more python generated output\n"
-    print output,
+    print(output),
 [% END %]
 [% CATCH %]
 Not allowed: [% error +%]
@@ -101,7 +101,7 @@ ERROR: [file]
     output = "author: [% template.author %]\n"
     stash.set('a', 'The cat sat on the mat')
     output += "more python generated output\n"
-    print output,
+    print(output),
 [% END %]
 -- expect --
 author: Andy Wardley
@@ -118,7 +118,7 @@ more python generated output
     output = "author: [% template.author %]\n"
     stash.set('a', 'The cat sat on the mat')
     output += "more python generated output\n"
-    print output,
+    print(output),
 [% END %]
 a: [% a +%]
 a: $a
@@ -140,8 +140,8 @@ b: The cat sat where?
 -- test --
 [% BLOCK foo %]This is block foo[% END %]
 [% PYTHON %]
-print context.include('foo'),
-print "\nbar\n",
+print(context.include('foo')),
+print("\nbar\n"),
 [% END %]
 The end
 -- expect --

@@ -440,7 +440,7 @@ raised.
     try:
         tt = context.template('header')
     except TemplateException, e:
-        print 'Failed to fetch template:', e
+        print('Failed to fetch template:', e)
 
 
 plugin(name, args)

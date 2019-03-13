@@ -311,7 +311,7 @@ Passes text to Python's builtin 'repr' function.  Useful for escaping
 strings in a PYTHON block, eg:
 
 [% PYTHON %]
-  print 'My name is', [% name | repr %], 'and I live at', [% address | repr %]
+  print('My name is', [% name | repr %], 'and I live at', [% address | repr %])
 [% END %]
 
 

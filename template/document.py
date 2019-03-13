@@ -38,7 +38,7 @@ SYNOPSIS
 	}
     })
 
-    print doc.process(context)
+    print(doc.process(context))
 
 
 DESCRIPTION
@@ -121,7 +121,7 @@ to the context visit() method, processes its own template, passing
 the context reference by parameter and then calls leave() in the
 context to allow cleanup.
 
-    print doc.process(context)
+    print(doc.process(context))
 
 Returns a text string representing the generated output for the template.
 
