@@ -48,4 +48,3 @@ This is the baz file, a:
 
 """
 
-main()

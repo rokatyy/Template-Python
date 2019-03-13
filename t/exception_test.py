@@ -25,4 +25,3 @@ class ExceptionTest(TestCase):
     self.assertEquals("e3.type error - e3.info", str(e3))
 
 
-main()

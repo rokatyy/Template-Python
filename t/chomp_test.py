@@ -171,4 +171,3 @@ begin 10 20 end
 
 """
 
-main()

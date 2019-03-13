@@ -403,4 +403,3 @@ message: Hello World
 
 """
 
-main()

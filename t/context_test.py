@@ -147,4 +147,3 @@ class ContextTest(TestCase):
     self.assertEquals('charlie', stash.get('a').value())
 
 
-main()
