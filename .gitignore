@@ -238,3 +238,18 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+## OURS
+
+# Our exclusions from the GitHub/Python.gitignore file above
+!/t/test/lib/
+
+# Files generated during test run
+/t/test/src/baz.ttc
+/t/test/src/complex.org
+/t/test/src/complex.ttc
+/t/test/src/evalpython.ttc
+/t/test/src/foo.ttc
+/t/test/tmp/cache/
+/t/test/tmp/foo.baz
