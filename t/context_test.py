@@ -15,21 +15,21 @@ class ContextTest(TestCase):
                           'EVAL_PYTHON': True })
 
     ctx = tt.service().context()
-    self.failUnless(ctx)
+    self.assertTrue(ctx)
     self.assertEquals(ctx, tt.context())
-    self.failUnless(ctx.trim())
-    self.failUnless(not ctx.eval_python())
+    self.assertTrue(ctx.trim())
+    self.assertTrue(not ctx.eval_python())
     ctx = ttpython.service().context()
-    self.failUnless(ctx)
-    self.failUnless(ctx.trim())
-    self.failUnless(ctx.eval_python())
+    self.assertTrue(ctx)
+    self.assertTrue(ctx.trim())
+    self.assertTrue(ctx.eval_python())
 
     # template()
 
     # Test that we can fetch a template via template()
     tmpl = ctx.template('header')
-    self.failUnless(tmpl)
-    self.failUnless(isinstance(tmpl, Document))
+    self.assertTrue(tmpl)
+    self.assertTrue(isinstance(tmpl, Document))
 
     # Test that non-existence of a template is reported
     error = None
@@ -37,7 +37,7 @@ class ContextTest(TestCase):
       tmpl = ctx.template('no_such_template')
     except Exception, e:
       error = e
-    self.failUnless(error)
+    self.assertTrue(error)
     self.assertEquals('file error - no_such_template: not found', str(error))
 
     # Check that template() returns subroutine and template.document.Document
@@ -91,11 +91,11 @@ class ContextTest(TestCase):
     # plugin()
 
     plugin = ctx.plugin('Table', [ [ 1, 2, 3, 4 ], { 'rows': 2 } ])
-    self.failUnless(plugin)
-    self.failUnless(isinstance(plugin, Table))
+    self.assertTrue(plugin)
+    self.assertTrue(isinstance(plugin, Table))
 
     row = plugin.row(0)
-    self.failUnless(row and isinstance(row, list))
+    self.assertTrue(row and isinstance(row, list))
     self.assertEquals(1, row[0])
     self.assertEquals(3, row[1])
     error = None
@@ -109,27 +109,27 @@ class ContextTest(TestCase):
     # filter()
 
     filter = ctx.filter('html')
-    self.failUnless(filter)
-    self.failUnless(callable(filter))
+    self.assertTrue(filter)
+    self.assertTrue(callable(filter))
     self.assertEquals('&lt;input/&gt;', filter('<input/>'))
 
     filter = ctx.filter('replace', [ 'foo', 'bar' ], 'repsave')
-    self.failUnless(filter)
-    self.failUnless(callable(filter))
+    self.assertTrue(filter)
+    self.assertTrue(callable(filter))
     self.assertEquals('this is bar, so it is', filter('this is foo, so it is'))
 
     # Check that filter got cached
     filter = ctx.filter('repsave')
-    self.failUnless(filter)
-    self.failUnless(callable(filter))
+    self.assertTrue(filter)
+    self.assertTrue(callable(filter))
     self.assertEquals('this is bar, so it is', filter('this is foo, so it is'))
 
     # include() and process()
 
     ctx = tt.context()
-    self.failUnless(ctx)
+    self.assertTrue(ctx)
     stash = ctx.stash()
-    self.failUnless(stash)
+    self.assertTrue(stash)
     stash.set('a', 'alpha')
     self.assertEquals('alpha', stash.get('a').value())
     text = ctx.include('baz')

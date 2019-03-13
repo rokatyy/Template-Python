@@ -51,7 +51,7 @@ class FilterTest(TestCase):
     tt2 = Template(config2)
     tt2.context().define_filter('another', another, True)
     self.Expect(DATA, (('default', tt1), ('evalpython', tt2)), params)
-    self.failUnless(os.path.exists(path))
+    self.assertTrue(os.path.exists(path))
     os.remove(path)
 
 #
