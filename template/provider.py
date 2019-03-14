@@ -481,7 +481,7 @@ class Provider:
 
     if isinstance(paths, str):
       paths = re.split(dlim, paths)
-    if size == 1 or size < 0:
+    if size == None:
       size = 2
     if debug is not None:
       self.__debug = debug & (DEBUG_PROVIDER & DEBUG_FLAGS)
