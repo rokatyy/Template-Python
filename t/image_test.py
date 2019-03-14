@@ -1,15 +1,14 @@
 import os
 import sys
 
+import pytest
+
 from template.test import TestCase, main
 
-try:
-  import PIL
-except ImportError:
-  print("Failed to import PIL module; skipping test", file=sys.stderr)
-  sys.exit(0)
+PIL = pytest.importorskip("PIL")
 
 class ImageTest(TestCase):
+  @pytest.mark.skip(reason="flaky")
   def testImage(self):
     dir = os.path.join(os.pardir, "images")
     vars = { "dir": dir,
