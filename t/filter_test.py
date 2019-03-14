@@ -1,4 +1,4 @@
-import cStringIO
+from io import StringIO
 import os
 import re
 import sys
@@ -11,7 +11,7 @@ from template.util import dynamic_filter
 class FilterTest(TestCase):
   def setUp(self):
     self.old_stderr = sys.stderr
-    sys.stderr = cStringIO.StringIO()
+    sys.stderr = StringIO()
 
   def tearDown(self):
     sys.stderr = self.old_stderr
