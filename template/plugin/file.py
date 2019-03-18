@@ -254,8 +254,8 @@ EXAMPLES
 """
 
 
-STAT_KEYS = ("dev", "ino", "mode", "nlink", "uid", "gid", "rdev", "size",
-             "atime", "mtime", "ctime", "blksize", "blocks")
+STAT_KEYS = ("dev", "ino", "mode", "nlink", "uid", "gid", "size",
+             "atime", "mtime", "ctime", )
 
 
 class File(Plugin):

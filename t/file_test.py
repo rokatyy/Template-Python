@@ -9,7 +9,7 @@ class FileTest(TestCase):
     vars = { 'dir': 'test', 'file': 'test/src/foo' }
     stat = os.stat(vars['file'])
     for key in file_plugin.STAT_KEYS:
-      vars[key] = getattr(stat, "st_" + key)
+      vars[key] = getattr(stat, 'st_'+ key)
     self.Expect(DATA, None, vars)
 
 
