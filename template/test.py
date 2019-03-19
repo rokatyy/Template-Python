@@ -72,8 +72,7 @@ class TestCase(unittest.TestCase):
       try:
         out = tproc.processString(input, vars)
       except Exception as e:
-        self.fail("Test #%d: %s process FAILED: %s\n%s" % (
-          count + 1, name, subtext(input), e))
+        self.fail("Test #%d: %s process FAILED: %s\n%s" % (count + 1, name, subtext(input), e))
 
       match = re.match(r"(?i)\s*--+\s*process\s*--+\s*\n", expect)
       if match:

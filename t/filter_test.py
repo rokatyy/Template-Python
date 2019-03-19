@@ -8,6 +8,10 @@ from template.test import TestCase, main
 from template.util import dynamic_filter
 
 
+old_stderr = sys.stderr
+sys.stderr = StringIO()
+
+
 class FilterTest(TestCase):
   def setUp(self):
     self.old_stderr = sys.stderr

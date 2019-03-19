@@ -283,7 +283,7 @@ class Table(Plugin):
       return None
     index = row
     set = []
-    for c in range(self._NCOLS):
+    for c in range(int(self._NCOLS)):
       if index < self._SIZE:
         set.append(self._DATA[index])
       elif self._PAD:
