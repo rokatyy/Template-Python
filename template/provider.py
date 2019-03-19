@@ -443,10 +443,7 @@ template located at 'path', or None if no such file exists.
 
 If the optional parameter 'modtime' is present, the modification time
 of the file is stored in its 'modtime' attribute.
-
 """
-
-
 RELATIVE_PATH = re.compile(r"(?:^|/)\.+/")
 
 
