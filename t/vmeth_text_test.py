@@ -336,4 +336,3 @@ hello world
 
 """
 
-main()

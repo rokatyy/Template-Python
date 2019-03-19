@@ -10,6 +10,7 @@ class ConfigTest(TestCase):
     # Parser:
     parser = factory.parser({ 'PRE_CHOMP': 1, 'INTERPOLATE': True })
     self.assertTrue(parser)
+
     self.assertEqual(1, parser.pre_chomp)
     self.assertTrue(parser.interpolate)
     parser = factory.parser({ 'POST_CHOMP': 1 })
@@ -20,6 +21,7 @@ class ConfigTest(TestCase):
     provider = factory.provider({ 'INCLUDE_PATH': 'here:there',
                                   'PARSER': parser })
     self.assertTrue(provider)
+
     self.assertEqual(['here', 'there'], provider.include_path())
     self.assertEqual(1, provider.parser().post_chomp)
     provider = factory.provider({ 'INCLUDE_PATH': 'cat:mat',
@@ -27,6 +29,7 @@ class ConfigTest(TestCase):
                                   'INTERPOLATE': True })
     self.assertTrue(provider)
     self.assertEqual(['cat', 'mat'], provider.include_path())
+
     # Force the provider to instantiate a parser and check it uses the
     # correct parameters.
     text = 'The cat sat on the mat'
@@ -37,6 +40,7 @@ class ConfigTest(TestCase):
     # Plugins:
     plugins = factory.plugins({ 'PLUGIN_BASE': ('my.plugins', 'MyPlugins') })
     self.assertTrue(plugins)
+
     self.assertEqual([('my.plugins', 'MyPlugins'), 'template.plugin'],
                       plugins.plugin_base())
     plugins = factory.plugins({ 'LOAD_PYTHON': True,
@@ -44,6 +48,7 @@ class ConfigTest(TestCase):
     self.assertTrue(plugins)
     self.assertTrue(plugins.load_python())
     self.assertEqual([('my.plugins', 'NewPlugins'), 'template.plugin'],
+    self.assertEquals([('my.plugins', 'NewPlugins'), 'template.plugin'],
                       plugins.plugin_base())
 
     # Filters:
@@ -76,6 +81,7 @@ class ConfigTest(TestCase):
                                 'LOAD_FILTERS': [ filters ],
                                 'STASH': stash })
     self.assertTrue(context)
+
     self.assertEqual(30, context.stash().get('foo').value())
     self.assertTrue(context.load_templates()[0].parser().interpolate)
     self.assertTrue(context.load_plugins()[0].load_python())
@@ -90,6 +96,7 @@ class ConfigTest(TestCase):
     # Iterator:
     iterator = factory.iterator(['foo', 'bar', 'baz'])
     self.assertTrue(iterator)
+
     self.assertEqual('foo', iterator.get_first())
     self.assertEqual('bar', iterator.get_next())
     self.assertEqual('baz', iterator.get_next())
@@ -98,4 +105,3 @@ class ConfigTest(TestCase):
     # (later)
 
 
-main()

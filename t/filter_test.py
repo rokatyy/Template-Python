@@ -7,11 +7,20 @@ from template import Template, TemplateException
 from template.test import TestCase, main
 from template.util import dynamic_filter
 
+
 old_stderr = sys.stderr
 sys.stderr = StringIO()
 
 
 class FilterTest(TestCase):
+  def setUp(self):
+    self.old_stderr = sys.stderr
+    sys.stderr = StringIO()
+
+  def tearDown(self):
+    sys.stderr = self.old_stderr
+    self.old_stderr = None
+
   def testFilter(self):
     dir = 'test/tmp'
     file = 'xyz'
@@ -46,7 +55,7 @@ class FilterTest(TestCase):
     tt2 = Template(config2)
     tt2.context().define_filter('another', another, True)
     self.Expect(DATA, (('default', tt1), ('evalpython', tt2)), params)
-    self.failUnless(os.path.exists(path))
+    self.assertTrue(os.path.exists(path))
     os.remove(path)
 
 #
@@ -562,7 +571,7 @@ ERROR redirect: OUTPUT_PATH is not set
    b = 20
    stash['foo'] = a + b
    stash['bar'] = context.config()['BARVAL']
-   print "all done",
+   print("all done"),
 [% END +%]
 foo: [% foo +%]
 bar: [% bar %]
@@ -825,7 +834,3 @@ Foobar
 fOOBAR
 
 """
-
-main()
-
-sys.stderr = old_stderr

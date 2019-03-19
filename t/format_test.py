@@ -56,4 +56,3 @@ alpha     -     bravo
 
 """
 
-main()

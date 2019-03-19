@@ -95,13 +95,13 @@ template variables.
 
     try:
         # filename
-        print tt.process('welcome.tt2')
+        print(tt.process('welcome.tt2'))
         # template text
-        print tt.processString(text)
+        print(tt.processString(text))
         # file object
-        print tt.process(os.fdopen(5))
-    except template.TemplateException, e:
-        print 'Got exception:', e
+        print(tt.process(os.fdopen(5)))
+    except template.TemplateException as e:
+        print('Got exception:', e)
 
 
 The processed template output is returned.
@@ -127,10 +127,10 @@ a string of the form '%s - %s' % (type, info).
 
     try:
         tt.process('somefile')
-    except template.TemplateException, e:
-        print 'error type:', e.type()
-        print 'error info:', e.info()
-        print e
+    except template.TemplateException as e:
+        print('error type:', e.type())
+        print('error info:', e.info())
+        print(e)
 
 
 service()
@@ -523,8 +523,8 @@ to be set).
     [% PYTHON %]
 	 # python code goes here
 	 stash.set('foo', 10)
-	 print "set 'foo' to ", stash.get('foo')
-	 print context.include('footer', { 'var': val })
+	 print("set 'foo' to ", stash.get('foo'))
+	 print(context.include('footer', { 'var': val }))
     [% END %]
 
     [% RAWPYTHON %]

@@ -209,4 +209,3 @@ alist: ??
 [% foo.bar.baz %]
 """
 
-main()

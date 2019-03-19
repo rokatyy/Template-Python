@@ -153,5 +153,4 @@ Drat, there was a File error.
 
 """
 
-main()
 

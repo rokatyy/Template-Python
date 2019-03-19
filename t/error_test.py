@@ -13,4 +13,3 @@ class ErrorTest(TestCase):
       self.assertEqual('nosuchfile: not found', e.info())
 
 
-main()
