@@ -234,3 +234,4 @@ Hello World
 ERROR: None error - HashObject instance has no attribute 'no_such_method'
 """
 
+main()

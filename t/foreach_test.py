@@ -597,4 +597,5 @@ last outer
 13
 """
 
+main()
 

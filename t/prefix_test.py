@@ -44,3 +44,4 @@ This is the foo file, a is [% a -%]
 
 """
 
+main()

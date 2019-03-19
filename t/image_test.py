@@ -1,14 +1,15 @@
 import os
 import sys
 
-import pytest
-
 from template.test import TestCase, main
 
-PIL = pytest.importorskip("PIL")
+try:
+  import PIL
+except ImportError:
+  print >>sys.stderr, "Failed to import PIL module; skipping test"
+  sys.exit(0)
 
 class ImageTest(TestCase):
-  @pytest.mark.skip(reason="flaky")
   def testImage(self):
     dir = os.path.join(os.pardir, "images")
     vars = { "dir": dir,
@@ -79,3 +80,4 @@ tag: <img src="[% file.logo %]" width="110" height="60" alt="image" class="myima
 <img src="other.jpg" width="110" height="60" alt="myfile" />
 """
 
+main()

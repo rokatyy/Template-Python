@@ -31,3 +31,4 @@ Place to purchase drinks
 3.14
 """
 
+main()

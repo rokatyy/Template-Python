@@ -218,3 +218,4 @@ foo stringified 'Test String' bar
 .
 """
 
+main()

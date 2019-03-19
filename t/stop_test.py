@@ -103,3 +103,4 @@ This is the footer
 
 """
 
+main()

@@ -19,3 +19,4 @@ class TemplateTest(TestCase):
       self.assertEquals("this_file_does_not_exist: not found", e.info())
 
 
+main()

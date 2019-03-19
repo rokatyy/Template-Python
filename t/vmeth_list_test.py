@@ -403,3 +403,4 @@ message: Hello World
 
 """
 
+main()

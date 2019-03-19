@@ -111,3 +111,4 @@ bar<-[baz]->qux
 baz<-[qux]
 """
 
+main()

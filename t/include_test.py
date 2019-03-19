@@ -255,4 +255,5 @@ import()
 -- test --
 """
 
+main()
 

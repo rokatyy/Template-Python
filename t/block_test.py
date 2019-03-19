@@ -103,4 +103,5 @@ This is an anonymous block
 
 """
 
+main()
 

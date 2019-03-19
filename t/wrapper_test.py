@@ -175,3 +175,4 @@ outer [bar]: The title is foo
 
 """
 
+main()

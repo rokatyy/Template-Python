@@ -149,4 +149,5 @@ foo[str]/bar [str]/foo[Stringy]
 
 """
 
+main()
 

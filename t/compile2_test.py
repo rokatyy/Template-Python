@@ -61,4 +61,5 @@ This is the footer, author: billg, version: 6.66
 
 """
 
+main()
 

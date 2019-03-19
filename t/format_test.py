@@ -56,3 +56,4 @@ alpha     -     bravo
 
 """
 
+main()

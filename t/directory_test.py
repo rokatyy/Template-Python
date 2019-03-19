@@ -247,3 +247,4 @@ xyzfile
 # 
 """
 
+main()

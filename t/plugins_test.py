@@ -194,4 +194,5 @@ ERROR: Date: plugin not found
 
 """
 
+main()
 

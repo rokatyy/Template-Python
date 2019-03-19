@@ -71,4 +71,5 @@ file error - parse error - complex line 18: unexpected end of input
 
 """
 
+main()
 

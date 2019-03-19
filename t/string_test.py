@@ -385,3 +385,4 @@ d: FOO wiz waz woz
 
 """
 
+main()

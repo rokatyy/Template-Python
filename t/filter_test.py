@@ -834,3 +834,7 @@ Foobar
 fOOBAR
 
 """
+
+main()
+
+sys.stderr = old_stderr

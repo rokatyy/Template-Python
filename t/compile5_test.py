@@ -2,13 +2,10 @@ import os
 import re
 import shutil
 
-import pytest
-
 from template.test import TestCase, main
 
 
 class CompileTest(TestCase):
-  @pytest.mark.xfail
   def testCompile(self):
     dir = os.path.abspath("test")
     cdir = os.path.join(dir, "tmp", "cache")
@@ -73,3 +70,4 @@ This is the footer, author: billg, version: 6.66
 This is the wam-bam file
 """
 
+main()

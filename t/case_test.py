@@ -61,3 +61,4 @@ this is foo, bar = baz
 1 1
 """
 
+main()

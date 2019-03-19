@@ -18,3 +18,4 @@ baz: the foo string and the bar string
 
 """
 
+main()

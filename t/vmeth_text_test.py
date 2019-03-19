@@ -336,3 +336,4 @@ hello world
 
 """
 
+main()

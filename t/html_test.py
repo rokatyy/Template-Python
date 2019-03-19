@@ -94,3 +94,4 @@ border="1" cellpadding="2"
 
 """
 
+main()
