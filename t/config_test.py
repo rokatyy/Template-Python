@@ -10,9 +10,6 @@ class ConfigTest(TestCase):
     # Parser:
     parser = factory.parser({ 'PRE_CHOMP': 1, 'INTERPOLATE': True })
     self.assertTrue(parser)
-    self.assertEqual(1, parser.pre_chomp)
-    self.failUnless(parser.interpolate)
-    self.assertTrue(parser)
 
     self.assertEqual(1, parser.pre_chomp)
     self.assertTrue(parser.interpolate)
@@ -48,9 +45,8 @@ class ConfigTest(TestCase):
                       plugins.plugin_base())
     plugins = factory.plugins({ 'LOAD_PYTHON': True,
                                 'PLUGIN_BASE': ('my.plugins', 'NewPlugins') })
-    self.assertTrue(plugins)
-    self.assertTrue(plugins.load_python())
-    self.assertEqual([('my.plugins', 'NewPlugins'), 'template.plugin'],
+    self.failUnless(plugins)
+    self.failUnless(plugins.load_python())
     self.assertEquals([('my.plugins', 'NewPlugins'), 'template.plugin'],
                       plugins.plugin_base())
 
