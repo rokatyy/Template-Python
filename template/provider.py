@@ -473,7 +473,7 @@ class Provider:
   DEBUG = False
 
   def __init__(self, params):
-    size = params.get("CACHE_SIZE")
+    size = params.get("CACHE_SIZE", -1)
     paths = params.get("INCLUDE_PATH", ".")
     cdir = params.get("COMPILE_DIR", "")
     dlim = params.get("DELIMITER", os.name == "nt" and r":(?!\/)" or ":")
@@ -481,7 +481,7 @@ class Provider:
 
     if isinstance(paths, str):
       paths = re.split(dlim, paths)
-    if size == None:
+    if size == 1 or size < 0:
       size = 2
     if debug is not None:
       self.__debug = debug & (DEBUG_PROVIDER & DEBUG_FLAGS)
