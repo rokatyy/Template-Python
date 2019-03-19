@@ -54,5 +54,4 @@ The word is 'wibble'
 This is the blam file
 """
 
-main()
 

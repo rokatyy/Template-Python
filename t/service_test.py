@@ -206,4 +206,3 @@ end process
 This comes after
 """
 
-main()

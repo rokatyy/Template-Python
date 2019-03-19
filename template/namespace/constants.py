@@ -82,7 +82,7 @@ class Constants:
     save = ident[:]
     ident[:2] = []
     nelems = len(ident) / 2
-    for e in range(nelems):
+    for e in range(int(nelems)):
       # Node name must be a constant.
       if ident[e * 2].startswith("'") and ident[e * 2].endswith("'"):
         ident[e * 2] = ident[e * 2][1:-1]

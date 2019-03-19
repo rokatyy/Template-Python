@@ -37,8 +37,8 @@ METHODS
 All function arguments are automatically converted to numbers, if
 necessary, using Perlish semantics:
 
-  print math_plugin.cos('0')  # prints '1'
-  print math_plugin.exp('x')  # also prints '1'
+  print(math_plugin.cos('0'))  # prints '1'
+  print(math_plugin.exp('x'))  # also prints '1'
 
 * abs
 

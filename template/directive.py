@@ -326,7 +326,7 @@ class Directive:
         Code.indent,
           block,
         Code.unindent,
-        "except Exception, e:",
+        "except Exception as e:",
         Code.indent,
           "error = context.catch(e, output)",
           "if error.type() in ('return', 'stop'):",

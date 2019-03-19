@@ -23,7 +23,7 @@ class CompileTest(TestCase):
     try:
       Template(ttcfg).process("evalpython", {})
       self.fail("did not raise exception")
-    except TemplateException, e:
+    except TemplateException as e:
       self.assertEquals("python", e.type())
       self.assertEquals("EVAL_PYTHON not set", e.info())
 
@@ -71,5 +71,4 @@ file error - parse error - complex line 18: unexpected end of input
 
 """
 
-main()
 

@@ -1,4 +1,4 @@
-# coding: latin-1
+# coding: utf-8
 import os
 
 from template.test import TestCase, main
@@ -31,7 +31,7 @@ OK
 -- name html entity --
 [% TRY; 
      text =
-      "Léon Brocard" | html_entity;
+      "LÃ©on Brocard" | html_entity;
    CATCH;
      error;
    END;
@@ -94,4 +94,3 @@ border="1" cellpadding="2"
 
 """
 
-main()

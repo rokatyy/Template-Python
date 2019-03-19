@@ -626,4 +626,3 @@ error: file error - no_such_file: not found
 
 """
 
-main()

@@ -108,7 +108,7 @@ class ProviderTest(TestCase):
     ttrel = Template({ "LOAD_TEMPLATES": [provrel] })
 
     def dpaths():
-      return [os.path.join(lib, x) for x in "one", "two"]
+      return [os.path.join(lib, x) for x in ("one", "two")]
 
     def badpaths():
       return [badpaths]
@@ -298,4 +298,3 @@ bar: This is two/bar
 file error - INCLUDE_PATH exceeds 42 directories
 """
 
-main()

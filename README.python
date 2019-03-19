@@ -100,8 +100,8 @@ You can, of course, catch a raised exception to take special action.
 
   try:
     print(Template().process("someblock"))
-  except TemplateException, e:
-    print(>>sys.stderr, "Got exception: ", e)
+  except TemplateException as e:
+    print("Got exception: ", e, file=sys.stderr)
 
 The OUTPUT and OUTPUT_PATH options are honored, but do not otherwise
 change the behavior of process().
@@ -473,9 +473,9 @@ Perl version:
 Python version:
 
   [% PYTHON %]
-    print context.include('myfile'),
+    print(context.include('myfile')),
     stash.set('foo', 'bar')
-    print 'foo value:', stash.get('foo'),
+    print('foo value:', stash.get('foo')),
   [% END %]
 
 Note that Python's print statement has semantics that may be
@@ -540,15 +540,15 @@ syntax error, and should be avoided.
 An example of a block that will cause a syntax error:
 
   [% PYTHON %]
-    print "line 1"
-      print "line 2"
+    print("line 1")
+      print("line 2")
   [% END %]
 
 Another block that will cause a syntax error:
 
   [% PYTHON %]
-      print "line 1"
-    print "line 2"
+      print("line 1")
+    print("line 2")
   [% END %]
 
 Note that leading whitespace is stripped indiscriminately; tab and
@@ -562,9 +562,9 @@ built-in Python function repr().  Example:
 
   [% x = 1; y = 2 %]
   [% PYTHON %]
-    print "x =", [% x | repr %], "; y =", [% y | repr %]
+    print("x =", [% x | repr %], "; y =", [% y | repr %])
     # Or:
-    print "x = %s; y = %s" % ([% x | repr %], [% y | repr %])
+    print("x = %s; y = %s" % ([% x | repr %], [% y | repr %]))
   [% END %]
 
 Finally, there is a standard filter "python", but it is more limited
@@ -586,7 +586,7 @@ as described above.
   [% FILTER python %]
     x = f()
     y = g()
-    print "hello world"
+    print("hello world")
   [% END %]
 
 
