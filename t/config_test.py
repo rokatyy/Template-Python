@@ -9,12 +9,12 @@ class ConfigTest(TestCase):
 
     # Parser:
     parser = factory.parser({ 'PRE_CHOMP': 1, 'INTERPOLATE': True })
-    self.failUnless(parser)
-    self.assertEquals(1, parser.pre_chomp)
+    self.assertTrue(parser)
+    self.assertEqual(1, parser.pre_chomp)
     self.failUnless(parser.interpolate)
     parser = factory.parser({ 'POST_CHOMP': 1 })
     self.failUnless(parser)
-    self.assertEquals(1, parser.post_chomp)
+    self.assertEqual(1, parser.post_chomp)
 
     # Provider:
     provider = factory.provider({ 'INCLUDE_PATH': 'here:there',
