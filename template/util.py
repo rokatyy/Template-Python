@@ -6,11 +6,12 @@
 #  The file "LICENSE" at the top level of this source distribution describes
 #  the terms under which this file may be distributed.
 #
-
+from filecmp import cmp
 from io import StringIO
 import os
 import re
 import sys
+from past.builtins import basestring
 
 
 class Error(Exception):
