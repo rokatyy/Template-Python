@@ -11,7 +11,6 @@ from io import StringIO
 import os
 import re
 import sys
-from past.builtins import basestring
 
 
 class Error(Exception):
