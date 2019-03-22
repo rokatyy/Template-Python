@@ -9,7 +9,7 @@
 
 import re
 import unittest
-
+from builtins import str
 from template import Template, TemplateException
 
 
@@ -86,7 +86,7 @@ class TestCase(unittest.TestCase):
       out = out.rstrip("\n")
       out = out.replace("\n\n","\n")
       stripped = expect.rstrip("\n")
-      stripped = out.replace("\n\n","\n")
+      stripped = stripped.replace("\n\n","\n")
       self.assertEqual(stripped, out, "Test #%d:\n%s\n%r != %r" %
                        (count + 1, test, stripped, out))
 
