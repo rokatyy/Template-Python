@@ -84,7 +84,9 @@ class TestCase(unittest.TestCase):
           self.fail("Test #%d: Template process failed (expect): %s" % (
             count + 1, e))
       out = out.rstrip("\n")
+      out = out.replace("\n\n","\n")
       stripped = expect.rstrip("\n")
+      stripped = out.replace("\n\n","\n")
       self.assertEqual(stripped, out, "Test #%d:\n%s\n%r != %r" %
                        (count + 1, test, stripped, out))
 

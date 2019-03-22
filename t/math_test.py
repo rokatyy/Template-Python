@@ -20,17 +20,17 @@ DATA = r"""
 -- test --
 [% USE Math; Math.atan2(42, 42) %]
 -- expect --
-0.785398163397
+0.7853981633974483
 
 -- test --
 [% USE Math; Math.cos(2) %]
 -- expect --
--0.416146836547
+-0.4161468365471424
 
 -- test --
 [% USE Math; Math.exp(6) %]
 -- expect --
-403.428793493
+403.4287934927351
 
 -- test --
 [% USE Math; Math.hex(42) %]
@@ -45,7 +45,7 @@ DATA = r"""
 -- test --
 [% USE Math; Math.log(42) %]
 -- expect --
-3.73766961828
+3.7376696182833684
 
 -- test --
 [% USE Math; Math.oct(72) %]
@@ -55,6 +55,6 @@ DATA = r"""
 -- test --
 [% USE Math; Math.sin(0.304) %]
 -- expect --
-0.299339178269
+0.2993391782690932
 """
 

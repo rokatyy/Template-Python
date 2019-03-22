@@ -266,7 +266,7 @@ class Math(Plugin):
   def atan(self, x):
     return math.atan(numify(x))
 
-  def acsc(x):
+  def acsc(self, x):
     return math.pi / 2.0 - self.asec(x)
 
   acosec = acsc

@@ -68,7 +68,7 @@ tokens = ("(", ")", "[", "]", "{", "}", "${", "$", "+", "/", ";", ":", "?")
 for keyword in RESERVED:
   LEXTABLE[keyword] = keyword
 
-for op in CMPOP.keys():
+for op in iter(CMPOP.keys()):
   LEXTABLE[op] = "CMPOP"
 
 for op in "-", "*", "%":
