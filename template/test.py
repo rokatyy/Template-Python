@@ -73,7 +73,7 @@ class TestCase(unittest.TestCase):
         out = tproc.processString(input, vars)
       except Exception as e:
         self.fail("Test #%d: %s process FAILED: %s\n%s" % (
-          count + 1, name, subtext(input), e))
+          int(count + 1), name, subtext(input), e))
 
       match = re.match(r"(?i)\s*--+\s*process\s*--+\s*\n", expect)
       if match:
@@ -84,9 +84,7 @@ class TestCase(unittest.TestCase):
           self.fail("Test #%d: Template process failed (expect): %s" % (
             count + 1, e))
       out = out.rstrip("\n")
-      out = out.replace("\n\n","\n")
       stripped = expect.rstrip("\n")
-      stripped = stripped.replace("\n\n","\n")
       self.assertEqual(stripped, out, "Test #%d:\n%s\n%r != %r" %
                        (count + 1, test, stripped, out))
 

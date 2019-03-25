@@ -196,7 +196,8 @@ class Literal:
 
 
 class PerlScalar:
-  """An object wrapper that imposes certain aspects of Perl's scalar
+  """
+  An object wrapper that imposes certain aspects of Perl's scalar
   semantics on the wrapped object.
 
   First, the wrapped object is expressed as a string or number, as the

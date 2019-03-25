@@ -32,8 +32,8 @@ class ViewTest(TestCase):
     view = context.view()
     self.assert_(view)
     view = context.view({"prefix": "my"})
-    self.assert_(view)
-    self.assertEquals("my", view.prefix())
+    self.assertTrue(view)
+    self.assertEqual("my", view.prefix())
     self.Expect(DATA, None, vars)
 
 
