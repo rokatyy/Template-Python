@@ -780,7 +780,7 @@ class Context:
         component = self.__stash.get("component")
       except:
         component = None
-      for name, compiled in zip(template, compileds):
+      for name, compiled in list(zip(template, compileds)):
         if not callable(compiled):
           element = compiled
         else:

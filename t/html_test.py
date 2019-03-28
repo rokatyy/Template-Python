@@ -1,4 +1,4 @@
-# coding: latin-1
+
 import os
 
 from template.test import TestCase, main
@@ -26,25 +26,6 @@ OK
 [%- END %]
 -- expect --
 &lt; &amp;amp; &gt;
-
--- test --
--- name html entity --
-[% TRY; 
-     text =
-      "Léon Brocard" | html_entity;
-   CATCH;
-     error;
-   END;
- "passed" IF text == "L&eacute;on Brocard";
- "passed" IF text == "L&#233;on Brocard";
-%]
--- expect --
--- process --
-[%  IF entities -%]
-passed
-[%- ELSE -%]
-html_entity error - cannot locate Apache::Util or HTML::Entities
-[%- END %]
 
 -- test --
 [% USE html; html.url('my file.html') -%]

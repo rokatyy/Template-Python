@@ -44,7 +44,7 @@ class StashTest(TestCase):
     self.assertEqual("<undef>", stash.get("baz(50).biz").value())  # args are ignored
 
     stash.set("bar.buz", 100)
-    self.assertEquals(100, stash.get("bar.buz").value())
+    self.assertEqual(100, stash.get("bar.buz").value())
 
     ttlist = (("default", Template()),
               ("warn", Template({"DEBUG": constants.DEBUG_UNDEF,
@@ -231,6 +231,6 @@ Hello World
 -- test --
 [% TRY; hashobj.goodbye; CATCH; "ERROR: "; error; END %]
 -- expect --
-ERROR: None error - HashObject instance has no attribute 'no_such_method'
+ERROR: None error - 'HashObject' object has no attribute 'no_such_method'
 """
 
