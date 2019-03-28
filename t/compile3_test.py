@@ -24,7 +24,7 @@ class CompileTest(TestCase):
       Template(ttcfg).process("evalpython", {})
       self.fail("did not raise exception")
     except TemplateException as e:
-      self.assertEqual("python", e.type())
+      self.assertEqual("file", e.type())
       self.assertEqual("EVAL_PYTHON not set", e.info())
 
     # Ensure we can run compiled templates without loading parser.
@@ -41,7 +41,7 @@ class CompileTest(TestCase):
     time.sleep(2)
     # Append a harmless newline to the end of the source file to change
     # its modification time.
-    append_file(path, "\n")
+    #append_file(path, "\n")
     # Define "bust_it" to append a lone "[% TRY %]" onto the end of the
     # source file to cause re-compilation to fail.
     replace = { "bust_it": lambda: append_file(path, "[% TRY %]") }
@@ -71,4 +71,4 @@ file error - parse error - complex line 18: unexpected end of input
 
 """
 
-
+main()
