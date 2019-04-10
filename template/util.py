@@ -646,7 +646,7 @@ def is_seq(obj):
   except TypeError:
     return False
   else:
-    return not isinstance(obj, basestring)
+    return not isinstance(obj, str) and not isinstance(obj, bytes)
 
 
 def slice(seq, indices):
