@@ -187,12 +187,12 @@ def hash_each(hash):
 
 @hash_op("keys")
 def hash_keys(hash):
-  return hash.keys()
+  return list(hash.keys())
 
 
 @hash_op("values")
 def hash_values(hash):
-  return hash.values()
+  return list(hash.values())
 
 
 @hash_op("pairs")
