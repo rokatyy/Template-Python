@@ -275,7 +275,7 @@ class PerlScalar:
   1 ** PerlScalar(False) or 42 --> PerlScalar(False)
   """
 
-  __False = (0, "", "0")
+  __False = (0, "", "0", b"")
 
   def __init__(self, value, truth=None):
     if isinstance(value, PerlScalar):
