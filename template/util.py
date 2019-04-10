@@ -363,6 +363,15 @@ class PerlScalar:
     else:
       return self.__value not in self.__False
 
+  def __bool__(self):
+    """Same as __nonzero__ but for Python 3"""
+    if self.__truth is not None:
+      truth = self.__truth
+      self.__truth = None
+      return truth
+    else:
+      return self.__value not in self.__False
+
   def __invert__(self):
     return PerlScalar(not self)
 
