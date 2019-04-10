@@ -316,7 +316,7 @@ class Iterator:
       self.ready = False
       return self
 
-    def next(self):
+    def __next__(self):
       if not self.ready:
         self.ready = True
         if self.data:
