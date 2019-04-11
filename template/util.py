@@ -275,7 +275,7 @@ class PerlScalar:
   1 ** PerlScalar(False) or 42 --> PerlScalar(False)
   """
 
-  __False = (0, "", "0")
+  __False = (0, "", "0", b"")
 
   def __init__(self, value, truth=None):
     if isinstance(value, PerlScalar):
@@ -356,6 +356,15 @@ class PerlScalar:
     of truth.  If this object's truth value has been frozen, report that
     instead.
     """
+    if self.__truth is not None:
+      truth = self.__truth
+      self.__truth = None
+      return truth
+    else:
+      return self.__value not in self.__False
+
+  def __bool__(self):
+    """Same as __nonzero__ but for Python 3"""
     if self.__truth is not None:
       truth = self.__truth
       self.__truth = None
@@ -646,7 +655,7 @@ def is_seq(obj):
   except TypeError:
     return False
   else:
-    return not isinstance(obj, basestring)
+    return not isinstance(obj, str) and not isinstance(obj, bytes)
 
 
 def slice(seq, indices):
