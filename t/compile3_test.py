@@ -24,8 +24,8 @@ class CompileTest(TestCase):
       Template(ttcfg).process("evalpython", {})
       self.fail("did not raise exception")
     except TemplateException as e:
-      self.assertEqual("python", e.type())
-      self.assertEqual("EVAL_PYTHON not set", e.info())
+      self.assertEquals("python", e.type())
+      self.assertEquals("EVAL_PYTHON not set", e.info())
 
     # Ensure we can run compiled templates without loading parser.
     ttcfg["EVAL_PYTHON"] = 1

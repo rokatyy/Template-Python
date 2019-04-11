@@ -18,7 +18,7 @@ class ConstantsTest(TestCase):
                   "col": { "back": "#ffffff", "text": "#000000" },
                   "counter": counter }
     namespace = Constants(constants)
-    self.assertEqual('"Andy \'Da Man\' Wardley"',
+    self.assertEquals('"Andy \'Da Man\' Wardley"',
                       namespace.ident(["constants", 0, "'author'", 0]))
     self.assertEqual('"foo\'bar"',
                       namespace.ident(["constants", 0, "'single'", 0]))

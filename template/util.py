@@ -352,6 +352,15 @@ class PerlScalar:
     """
     return PerlScalar(self.__value, True)
 
+  def __bool__(self):
+    """Same as __nonzero__ but for Python 3"""
+    if self.__truth is not None:
+      truth = self.__truth
+      self.__truth = None
+      return truth
+    else:
+      return self.__value not in self.__False
+
   def __nonzero__(self):
     """Evaluates the truth of the wrapped object according to Perl's notion
     of truth.  If this object's truth value has been frozen, report that

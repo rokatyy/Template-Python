@@ -9,7 +9,7 @@
 
 import re
 import unittest
-from builtins import str
+#from builtins import str
 from template import Template, TemplateException
 
 
