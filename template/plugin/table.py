@@ -262,9 +262,9 @@ class Table(Plugin):
 
     self._DATA = data
     self._SIZE = size
-    self._NROWS = rows
-    self._NCOLS = cols
-    self._COLOFF = coloff
+    self._NROWS =int(rows)
+    self._NCOLS = int(cols)
+    self._COLOFF = int(coloff)
     self._OVERLAP = overlap
     self._PAD = params.get("PAD")
     if self._PAD is None:
@@ -283,7 +283,7 @@ class Table(Plugin):
       return None
     index = row
     set = []
-    for c in range(self._NCOLS):
+    for c in range(int(self._NCOLS)):
       if index < self._SIZE:
         set.append(self._DATA[index])
       elif self._PAD:

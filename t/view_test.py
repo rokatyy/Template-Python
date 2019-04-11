@@ -8,11 +8,11 @@ class Foo:
 
   def present(self, view):
     return "{ %s }" % ", ".join(
-      "%s => %s" % item for item in sorted(self.__dict.items()))
+      "%s => %s" % item for item in sorted(list(self.__dict.items())))
 
   def reverse(self, view):
     return "{ %s }" % ", ".join(
-      "%s => %s" % item for item in sorted(self.__dict.items(), reverse=True))
+      "%s => %s" % item for item in sorted(list(self.__dict.items()), reverse=True))
 
 
 class MyList:
@@ -32,8 +32,8 @@ class ViewTest(TestCase):
     view = context.view()
     self.assert_(view)
     view = context.view({"prefix": "my"})
-    self.assert_(view)
-    self.assertEquals("my", view.prefix())
+    self.assertTrue(view)
+    self.assertEqual("my", view.prefix())
     self.Expect(DATA, None, vars)
 
 

@@ -12,7 +12,7 @@ class MyObj:
       named = { }
     return "  ARGS: [ %s ]\n NAMED: { %s }\n" % (
       ", ".join(str(x) for x in arg),
-      ", ".join("%s => %s" % (key, named[key]) for key in sorted(named.keys())))
+      ", ".join("%s => %s" % (key, named[key]) for key in sorted(list(named))))
 
 
 class ArgsTest(TestCase):

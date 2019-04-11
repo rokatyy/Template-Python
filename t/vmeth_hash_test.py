@@ -8,7 +8,7 @@ class HashVmethodsTest(TestCase):
                "uhash": { "tobe": "2b", "nottobe": None } }
     def dump(dict):
       return "{ %s }" % (
-        ", ".join(["%s => '%s'" % pair for pair in sorted(dict.items())]))
+        ", ".join(["%s => '%s'" % pair for pair in sorted(list(dict.items()))]))
     Template().context().define_vmethod("hash", "dump", dump)
     self.Expect(DATA, None, params)
 

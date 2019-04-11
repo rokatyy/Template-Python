@@ -455,7 +455,7 @@ class View:
       cfg = args.pop()
       clone = self.clone(cfg)
       return clone.print_(*args)
-    output = cStringIO.StringIO()
+    output = StringIO()
     for item in args:
       if isinstance(item, (tuple, list)):
         type = "ARRAY"

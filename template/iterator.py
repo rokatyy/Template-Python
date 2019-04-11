@@ -325,15 +325,6 @@ class Iterator:
         return unscalar(self.data[self.index])
       raise StopIteration
 
-    def next(self):
-      if not self.ready:
-        self.ready = True
-        if self.data:
-          return unscalar(self.data[0])
-      elif self.advance():
-        return unscalar(self.data[self.index])
-      raise StopIteration
-
 
 def normalize_data(data):
   """Normalizes a sequence of input data according to the heuristic

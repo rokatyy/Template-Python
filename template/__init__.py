@@ -652,11 +652,13 @@ class Template:
       path = self.__output
       if self.__output_path:
         path = os.path.join(self.__output_path, path)
-      if binmode:
-        mode = "wb"
-      else:
-        mode = "w"
-      fh = open(path, mode)
-      fh.write(text)
-      fh.close()
+        # TO DO: normal check with mode (this is bad but it works)
+      try:
+        fh = open(path,'wb')
+        fh.write(text)
+        fh.close()
+      except:
+        fh = open(path, 'w')
+        fh.write(text)
+        fh.close()
 

@@ -33,7 +33,7 @@ class CompileTest(TestCase):
 
     # Check that compiled template file exists and grab modification time.
     path = "test/src/complex"
-    self.assert_(os.path.exists(path + ".ttc"))
+    self.assertTrue(os.path.exists(path + ".ttc"))
     mod = os.stat(path + ".ttc")[9]
     # Save copy of the source file because we're going to try to break it.
     shutil.copy(path, path + ".org")
@@ -47,7 +47,7 @@ class CompileTest(TestCase):
     replace = { "bust_it": lambda: append_file(path, "[% TRY %]") }
 
     self.Expect(DATA, ttcfg, replace)
-    self.assert_(os.stat(path)[9] > mod)
+    self.assertTrue(os.stat(path)[9] > mod)
     # Restore original source file.
     shutil.copy(path + ".org", path)
 

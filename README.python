@@ -100,7 +100,7 @@ You can, of course, catch a raised exception to take special action.
 
   try:
     print(Template().process("someblock"))
-  except TemplateException as e:
+  except TemplateException, e:
     print("Got exception: ", e, file=sys.stderr)
 
 The OUTPUT and OUTPUT_PATH options are honored, but do not otherwise

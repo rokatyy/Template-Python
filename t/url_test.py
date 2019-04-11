@@ -12,7 +12,7 @@ def sort_params(query):
   args = args.split("&amp;")
   keys = [x.split("=")[0] for x in args]
   argtab = dict(zip(keys, args))
-  keys = sorted(argtab.keys())
+  keys = sorted((list(argtab.keys())))
   args = [argtab[x] for x in keys]
   args = "&amp;".join(args)
   query = "?".join(base and [base, args] or [args])
