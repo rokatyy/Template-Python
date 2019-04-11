@@ -6,7 +6,7 @@
 #  The file "LICENSE" at the top level of this source distribution describes
 #  the terms under which this file may be distributed.
 #
-
+from filecmp import cmp
 from io import StringIO
 import os
 import re
@@ -195,7 +195,8 @@ class Literal:
 
 
 class PerlScalar:
-  """An object wrapper that imposes certain aspects of Perl's scalar
+  """
+  An object wrapper that imposes certain aspects of Perl's scalar
   semantics on the wrapped object.
 
   First, the wrapped object is expressed as a string or number, as the
@@ -274,8 +275,7 @@ class PerlScalar:
 
   1 ** PerlScalar(False) or 42 --> PerlScalar(False)
   """
-
-  __False = (0, "", "0")
+  __False = (0, "", "0", b"")
 
   def __init__(self, value, truth=None):
     if isinstance(value, PerlScalar):
@@ -350,6 +350,15 @@ class PerlScalar:
     same object wrapped by this object.
     """
     return PerlScalar(self.__value, True)
+
+  def __bool__(self):
+    """Same as __nonzero__ but for Python 3"""
+    if self.__truth is not None:
+      truth = self.__truth
+      self.__truth = None
+      return truth
+    else:
+      return self.__value not in self.__False
 
   def __nonzero__(self):
     """Evaluates the truth of the wrapped object according to Perl's notion
@@ -646,7 +655,8 @@ def is_seq(obj):
   except TypeError:
     return False
   else:
-    return not isinstance(obj, basestring)
+    return not isinstance(obj, str) and not isinstance(obj, bytes)
+
 
 
 def slice(seq, indices):

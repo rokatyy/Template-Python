@@ -316,6 +316,15 @@ class Iterator:
       self.ready = False
       return self
 
+    def __next__(self):
+      if not self.ready:
+        self.ready = True
+        if self.data:
+          return unscalar(self.data[0])
+      elif self.advance():
+        return unscalar(self.data[self.index])
+      raise StopIteration
+
     def next(self):
       if not self.ready:
         self.ready = True

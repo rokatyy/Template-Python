@@ -678,7 +678,6 @@ to silence it, you can wrap the block in a null filter:
 
 Notice the use of the stdout filter to ensure that a particular expression
 generates output to stdout.
-
 """
 
 

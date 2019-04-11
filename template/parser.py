@@ -688,7 +688,7 @@ class Parser:
       start, end = tags
       config["START_TAG"] = config.get("START_TAG", start)
       config["END_TAG"] = config.get("END_TAG", end)
-    for key in DEFAULT_STYLE.keys():
+    for key in list(DEFAULT_STYLE):
       value = config.get(key)
       if value is not None:
         style[key] = value

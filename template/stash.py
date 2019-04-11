@@ -703,17 +703,17 @@ def hash_each(hash):
 
 @hash_op("keys")
 def hash_keys(hash):
-  return hash.keys()
+  return list(hash)
 
 
 @hash_op("values")
 def hash_values(hash):
-  return hash.values()
+  return list(hash.values())
 
 
 @hash_op("pairs")
 def hash_pairs(hash):
-  return [{"key": key, "value": value} for key, value in sorted(hash.items())]
+  return [{"key": key, "value": value} for key, value in sorted(list(hash.items()))]
 
 
 @hash_op("list")
