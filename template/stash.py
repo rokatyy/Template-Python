@@ -990,7 +990,7 @@ def _slice(seq, items):
   sliced = []
   for x in items:
     try:
-      sliced.append(int(seq[x]))
+      sliced.append(seq[x])
     except KeyError:
       sliced.append(None)
   return sliced
