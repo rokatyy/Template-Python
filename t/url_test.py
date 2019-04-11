@@ -96,7 +96,7 @@ there?age=42&amp;name=frank
 [% url  %]
 
 -- expect --
-/script?one=1&amp;three=3&amp;three=6&amp;three=9&amp;two=2&amp;two=4
+/script?one=1&amp;two=2&amp;two=4&amp;three=3&amp;three=6&amp;three=9
 
 -- test --
 [% url.product.view %]
@@ -129,3 +129,4 @@ there?age=42&amp;name=frank
 """
 
 
+main()
