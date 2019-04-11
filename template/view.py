@@ -543,6 +543,7 @@ class View:
       template = self._context.template(template)
     except Exception as e:
       pass
+    e = None
     if e and self._base:
       try:
         template = self._base.template(name)
