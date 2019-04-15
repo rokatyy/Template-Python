@@ -23,9 +23,9 @@ class CompileTest(TestCase):
                    for x in args)
     foo, bar, blam = twiddle("foo", "complex", "blam")
     blam = re.sub(r"/+", "/", blam)
-    self.assert_(os.path.exists(foo))
-    self.assert_(os.path.exists(bar))
-    self.assert_(os.path.exists(blam))
+    self.assertTrue(os.path.exists(foo))
+    self.assertTrue(os.path.exists(bar))
+    self.assertTrue(os.path.exists(blam))
 
     # We're going to hack on the compiled 'foo' file to change some key text.
     # This way we can tell that the template was loaded from the compiled
@@ -72,4 +72,3 @@ This is the footer, author: billg, version: 6.66
 -- expect --
 This is the wam-bam file
 """
-
