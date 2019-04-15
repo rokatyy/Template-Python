@@ -145,7 +145,7 @@ print("\nbar\n"),
 [% END %]
 The end
 -- expect --
-This is block foo 
+This is block foo
 bar
 The end
 
