@@ -21,7 +21,8 @@ DATA = r"""
 -- test --
 [% INCLUDE evalpython %]
 -- expect --
-This file includes a python block.
+This file includes a python 
+block.
 
 -- test --
 [% TRY %]
@@ -47,4 +48,3 @@ This is the footer, author: abw, version: 3.14
 This is the baz file, a: 
 
 """
-
