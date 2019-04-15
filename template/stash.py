@@ -264,7 +264,6 @@ class Stash:
 
     if result is None:
       result = self.undefined(ident, args)
-    out = util.PerlScalar(result)
     return util.PerlScalar(result)
 
   def set(self, ident, value, default=False):

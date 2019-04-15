@@ -303,7 +303,7 @@ class PerlScalar:
   def __mul__(self, other):
     return PerlScalar(self.__numify() * other.__numify(), self.__truth)
 
-  def __div__(self, other):
+  def __truediv__(self, other):
     return PerlScalar(self.__numify() / other.__numify(), self.__truth)
 
   def __mod__(self, other):

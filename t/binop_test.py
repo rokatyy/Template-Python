@@ -288,7 +288,7 @@ mega: [% mult * 2 + 2 * 3 %]
 -- expect --
 both: 15
 less: 3
-half: 2
+half: 2.0
 left: 3
 mult: 50
 maxi: 54
@@ -314,3 +314,4 @@ ERROR!
 one is less than two
 """
 
+main()
