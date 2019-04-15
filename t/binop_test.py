@@ -313,5 +313,3 @@ ERROR!
 -- expect --
 one is less than two
 """
-
-main()
