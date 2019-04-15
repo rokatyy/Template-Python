@@ -260,12 +260,13 @@ STAT_KEYS = ("dev", "ino", "mode", "nlink", "uid", "gid", "size",
 
 class File(Plugin):
   """Plugin for encapsulating information about a system file."""
-  def __init__(self, context, path, config=None):
+  def __init__(self, context, path, config=None, *args):
     """Initialize a new File object.
 
     Takes the pathname of the file as the argument following the
     context and an optional dictionary of configuration parameters.
     """
+    super().__init__(*args)
     if not isinstance(config, dict):
       config = {}
     if not path:

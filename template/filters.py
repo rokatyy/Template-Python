@@ -845,7 +845,7 @@ ENTITY_REGEX = re.compile(r"[^\n\r\t !#$%'-;=?-~]")
 @register("html_entity")
 @dynamic_filter
 def html_entity_filter_factory(context):
-  from htmlentitydefs import codepoint2name
+  from html.entities import codepoint2name
   def encode(char):
     char = ord(char)
     name = codepoint2name.get(char)
