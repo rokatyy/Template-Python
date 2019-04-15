@@ -21,7 +21,7 @@ DATA = r"""
 -- test --
 [% INCLUDE evalpython %]
 -- expect --
-This file includes a python 
+This file includes a python
 block.
 
 -- test --
