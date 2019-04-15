@@ -538,19 +538,18 @@ class View:
     if block:
       return block
     template = self.template_name(name)
-    e = None
+    error = None
     try:
       template = self._context.template(template)
     except Exception as e:
-      pass
-    e = None
-    if e and self._base:
+      error = e
+    if error and self._base:
       try:
         template = self._base.template(name)
-        e = None
+        error = None
       except Exception as e:
-        pass
-    if e and self._notfound:
+        error = e
+    if error and self._notfound:
       template = self._blocks.get(self._notfound)
       if not template:
         notfound = self.template_name(self._notfound)
@@ -558,8 +557,8 @@ class View:
           template = self._context.template(notfound)
         except Exception as e:
           self._context.throw(ERROR_VIEW, e)
-    elif e:
-      self._context.throw(ERROR_VIEW, e)
+    elif error:
+      self._context.throw(ERROR_VIEW, error)
     return template
 
   def template_name(self, template):
