@@ -7,11 +7,14 @@
 #  the terms under which this file may be distributed.
 #
 
-from io import StringIO
-import operator
+import sys
 import os
 import re
 import time
+if sys.version_info[0]<3:
+  from cStringIO import StringIO
+else:
+  from io import StringIO
 
 from template import util
 from template.constants import *

@@ -6,8 +6,12 @@
 #  The file "LICENSE" at the top level of this source distribution describes
 #  the terms under which this file may be distributed.
 #
+import sys
 from filecmp import cmp
-from io import StringIO
+if sys.version_info[0]<3:
+  from cStringIO import StringIO
+else:
+  from io import StringIO
 import os
 import re
 import sys
@@ -304,6 +308,10 @@ class PerlScalar:
     return PerlScalar(self.__numify() * other.__numify(), self.__truth)
 
   def __truediv__(self, other):
+    result = PerlScalar(self.__numify() / other.__numify(), self.__truth)
+    if result.__int__() == result.value(): return PerlScalar(result.__int__(), self.__truth)
+
+  def __div__(self, other):
     return PerlScalar(self.__numify() / other.__numify(), self.__truth)
 
   def __mod__(self, other):
