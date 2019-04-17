@@ -1,6 +1,7 @@
 from template import Template, TemplateException
 from template.stash import Stash
 from template.test import TestCase, main
+import pytest
 
 
 class VarsTest(TestCase):
