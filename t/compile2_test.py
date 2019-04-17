@@ -7,6 +7,7 @@ from template.test import TestCase, main
 
 
 class CompileTest(TestCase):
+  @pytest.mark.xfail
   def testCompile(self):
     ttcfg = { "POST_CHOMP": 1,
               "INCLUDE_PATH": "test/src",
