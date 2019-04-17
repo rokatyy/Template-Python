@@ -636,7 +636,7 @@ def unpack(seq, n):
   """
   try:
     return chop(seq, n).__next__()
-  else:
+  except:
     return chop(seq,n).next()
 
 
