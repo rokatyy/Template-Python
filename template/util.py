@@ -634,7 +634,10 @@ def unpack(seq, n):
   ...and not suffer an error if there are fewer than three elements
   in the tuple returned by func.
   """
-  return chop(seq, n).__next__()
+  try:
+    return chop(seq, n).__next__()
+  else:
+    return chop(seq,n).next()
 
 
 def listify(arg):
