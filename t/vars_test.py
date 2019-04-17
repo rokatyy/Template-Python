@@ -15,6 +15,7 @@ class VarsTest(TestCase):
                                  "V1DOLLAR": 0 })))
     self.Expect(DATA_V1, tt, params)
 
+  @pytest.mark.xfail
   def testVarsV2(self):
     params = self.make_params()
     tt = (("default", Template({ "INTERPOLATE": 1, "ANYCASE": 1 })),
