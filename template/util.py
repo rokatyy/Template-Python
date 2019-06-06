@@ -568,9 +568,14 @@ def ScalarList(*args):
   except for range objects, which are flattened into the output list
   instead.
   """
+  import sys
+  if sys.version.startswith('3'):
+    zrange = range
+  else:
+    zrange = xrange
   list = []
   for arg in args:
-    if isinstance(arg, range):
+    if isinstance(arg, zrange):
       list.extend(arg)
     else:
       list.append(unscalar(arg))

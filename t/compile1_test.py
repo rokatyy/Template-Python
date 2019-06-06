@@ -47,3 +47,4 @@ This is the footer, author: abw, version: 3.14
 This is the baz file, a: 
 
 """
+main()

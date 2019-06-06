@@ -1,7 +1,11 @@
-from io import StringIO
+import sys
+if sys.version_info[0]<3:
+  from cStringIO import StringIO
+else:
+  from io import StringIO
 import os
 import re
-import sys
+
 
 from template import Template, TemplateException
 from template.test import TestCase, main
