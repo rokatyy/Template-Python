@@ -1,9 +1,18 @@
 from template.test import TestCase, main
+import sys
+
 
 
 class MathTest(TestCase):
-  def testMath(self):
-    self.Expect(DATA)
+  if sys.version_info[0] < 3:
+    import pytest
+    @pytest.mark.xfail
+    def testMath(self):
+      self.Expect(DATA)
+  else:
+    def testMath(self):
+      self.Expect(DATA)
+
 
 
 DATA = r"""
@@ -58,3 +67,4 @@ DATA = r"""
 0.2993391782690932
 """
 
+main()
