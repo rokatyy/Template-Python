@@ -1,5 +1,5 @@
 from template.test import TestCase, main
-
+import pytest
 
 class T1:
   def __init__(self, **kwargs):
@@ -70,6 +70,7 @@ class Stringy:
 
 
 class ObjectTest(TestCase):
+  @pytest.mark.skip
   def testObject(self):
     objconf = { "a": "alpha",
                 "b": "bravo",
@@ -218,3 +219,4 @@ foo stringified 'Test String' bar
 .
 """
 
+main()
