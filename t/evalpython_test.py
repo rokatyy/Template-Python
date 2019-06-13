@@ -3,7 +3,6 @@ from template.test import TestCase, main
 import pytest
 
 class EvalPythonTest(TestCase):
-  @pytest.mark.skip
   def testEvalPython(self):
     tt_no_python = Template({ "INTERPOLATE": 1,
                               "POST_CHOMP": 1,
