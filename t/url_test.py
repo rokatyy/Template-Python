@@ -20,6 +20,7 @@ def sort_params(query):
 
 
 class UrlTest(TestCase):
+  @pytest.mark.skip(reason="flaky")
   def testUrl(self):
     urls = [{ "name": "view",
               "url": "/product" },

@@ -1,7 +1,7 @@
 from template import Template
 from template.stash import Stash
 from template.test import TestCase, main
-
+import pytest
 
 class MyObject:
   def __init__(self, name):
@@ -17,6 +17,7 @@ def jumble(seq, chop=1):
 
 
 class ListVmethodsTest(TestCase):
+  @pytest.mark.skip
   def testListVmethods(self):
     odd = lambda seq: [x for x in seq if x % 2 != 0]
     Stash.LIST_OPS["sum"] = lambda seq: sum(seq, 0)
