@@ -4,7 +4,7 @@ import time
 
 from template import Template, TemplateException
 from template.test import TestCase, main
-
+import pytest
 
 def append_file(path, text):
   time.sleep(2)  # Ensure file time stamps are different.
