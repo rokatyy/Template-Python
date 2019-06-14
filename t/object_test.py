@@ -217,5 +217,3 @@ foo stringified 'Test String' bar
 .None error - barfed up
 .
 """
-
-main()
