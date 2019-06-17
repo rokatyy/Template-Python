@@ -19,7 +19,6 @@ class TestObject:
     self.public = 314
     self._hidden = 537
     setattr(self, ".private", 425)
-    super().__init__(params=None)
 
   def yesterday(self):
     return "Love was such an easy game to play..."
